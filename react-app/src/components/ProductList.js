@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [limit, setLimit] = useState(10); // Default limit is 10
+  const [limit, setLimit] = useState(10); // Default limit is 10  
 
   useEffect(() => {
     fetch('http://localhost:3001/api/products')
