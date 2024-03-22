@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navigation() {
     return (
         <nav>
             <ul>
-                <li><a href="#">Hem</a></li>
-                <li><a href="#">Produkter</a></li>
-                <li><a href="#">Om oss</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li><Link to="/">Hem</Link></li>
+                <li><Link to="/produkter">Produkter</Link></li>
+                <li><Link to="/om-oss">Om oss</Link></li>
+                <li><Link to="/kontakt">Kontakt</Link></li>
             </ul>
         </nav>
     );
