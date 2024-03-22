@@ -2,20 +2,24 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#product-image {
+  width: 50%;
+  height: 70%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 370px;
+  height: 370px;
+  margin: 2%;
 }
 
-.product-image {
-  width: 20%;
-  height: 20%;
+.product-content {
+  text-align: center;
 }
 
 .App-header {

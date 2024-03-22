@@ -13,7 +13,7 @@ const ProductList = () => {
           return {
             ...product,
             // Remove [ and ' from image_downloads
-            image_downloads: product.image_downloads.replace(/[\[\]']/g, '').split(', ') // Split the string by comma to get an array of image IDs
+            image_downloads: product.image_downloads.replace(/[\[\]']/g, '').split(', ')
           };
         });
         setProducts(cleanedProducts);
@@ -21,26 +21,20 @@ const ProductList = () => {
       .catch(error => console.error('Error fetching products:', error));
   }, [limit]);
 
-  // Function to handle image load error
-  const handleImageError = () => {
-    console.error('Error loading image');
-    // You can set a state here to display a placeholder image or show an alternative message
-  };
-
   return (
     <div>
       <h1>Produkter</h1>
       <div className="product-list">
         {products.map(product => (
           <div key={product.sku} className="product">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Pris: {product.price} {product.currency}</p>
+            <h2 class="product-content">{product.name}</h2>
             <img
               src={require(`./mango/${product.image_downloads[0]}.jpg`)}
               alt={product.name}
-              className="product-image"
+              class="product-content"
+              id="product-image"
             />
+            <p class="product-content">Pris: {product.price} {product.currency}</p>
           </div>
         ))}
       </div>
