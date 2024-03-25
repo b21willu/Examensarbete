@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 
 function Navigation() {
     return (
@@ -9,6 +10,7 @@ function Navigation() {
                 <li><Link to="/produkter">Produkter</Link></li>
                 <li><Link to="/om-oss">Om oss</Link></li>
                 <li><Link to="/kontakt">Kontakt</Link></li>
+                <li><Link to="/kundvagn"><FaShoppingCart /></Link></li>
             </ul>
         </nav>
     );

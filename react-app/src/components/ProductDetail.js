@@ -22,20 +22,23 @@ const ProductDetail = () => {
   return (
     <div>
       {product && (
-        <div>
-          <h2>{product.name}</h2>
-          <div className="product-images">
+        <div className="product-detail-container">
+          <div className="product-details">
             {product.image_downloads.map((image, index) => (
               <img
                 key={index}
                 src={require(`./mango/${image.replace(/['"\[\]]+/g, '')}.jpg`)}
                 alt={`Bild ${index + 1}`}
-                className="product-content"
+                className="product-detail-image"
               />
             ))}
           </div>
-          <p className="product-content">Beskrivning: {product.description}</p>
-          <p className="product-content">Pris: {product.price} {product.currency}</p>
+          <div className="product-info">
+              <h2 className="product-detail-content">{product.name}</h2>
+              <p className="product-detail-content">Beskrivning: {product.description}</p>
+              <p className="product-detail-content">Pris: {product.price} {product.currency}</p>
+              <button className="button">Lägg till i kundvagnen</button>
+          </div>
         </div>
       )}
     </div>
