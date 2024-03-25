@@ -5,6 +5,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import About from './components/About';
+import ProductDetail from './components/ProductDetail';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/produkter" element={<ProductList />} />
           <Route path="/om-oss" element={<About />} />
           <Route path="/kontakt" element={<Contact />} />
+          <Route path="/product/:sku" element={<ProductDetail />} />
         </Routes>
       </div>
       <Footer />

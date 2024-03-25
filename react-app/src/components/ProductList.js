@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -27,14 +28,16 @@ const ProductList = () => {
       <div className="product-list">
         {products.map(product => (
           <div key={product.sku} className="product">
-            <img
-              src={require(`./mango/${product.image_downloads[0]}.jpg`)}
-              alt={product.name}
-              class="product-content"
-              id="product-image"
-            />
-            <p class="product-content">{product.name}</p>
-            <p class="product-content">Pris: {product.price} {product.currency}</p>
+            <Link to={`/product/${product.sku}`}>
+              <img
+                src={require(`./mango/${product.image_downloads[0]}.jpg`)}
+                alt={product.name}
+                className="product-content"
+                id="product-image"
+              />
+            </Link>
+            <p className="product-content">{product.name}</p>
+            <p className="product-content">Pris: {product.price} {product.currency}</p>
           </div>
         ))}
       </div>

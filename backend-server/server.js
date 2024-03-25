@@ -30,6 +30,34 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
+app.get('/api/products/:sku', async (req, res) => {
+  try {
+    const sku = req.params.sku;
+
+    // Hämta produkten från databasen baserat på SKU
+    const [productRows, productFields] = await pool.query(`SELECT * FROM store_mango WHERE sku = ?`, [sku]);
+    const product = productRows[0];
+
+    if (!product) {
+      return res.status(404).json({ error: 'Produkt hittades inte' });
+    }
+
+    // Hämta bilderna för den specifika produkten från databasen
+    const [imageRows, imageFields] = await pool.query(`SELECT image_downloads FROM store_mango WHERE sku = ?`, [sku]);
+    const images = imageRows[0].image_downloads.split(',').map(filename => filename.trim());
+
+    // Lägg till bilderna till produktobjektet
+    product.image_downloads = images;
+
+    res.json(product);
+  } catch (error) {
+    console.error('Error fetching product details:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
 // Starta servern
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
