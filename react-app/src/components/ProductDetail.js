@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useCart } from '../CartContext';
 
 const ProductDetail = () => {
   const { sku } = useParams();
   const [product, setProduct] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/products/${sku}`)
@@ -19,10 +21,10 @@ const ProductDetail = () => {
       .catch(error => console.error('Error fetching product details:', error));
   }, [sku]);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (sku) => {
+    addToCart(product, sku); // Använd addToCart-funktionen från useCart-hooket för att lägga till produkten i kundvagnen
     alert('Produkten har lagts till i kundvagnen.');
   };
-
   return (
     <div>
       {product && (

@@ -21,7 +21,7 @@ const pool = mysql.createPool({
 app.get('/api/products', async (req, res) => {
   try {
     // Hämta produkter från databasen
-    const limit = req.query.limit || 10; // Default limit is 10 if not specified
+    const limit = req.query.limit || 400; 
     const [rows, fields] = await pool.query(`SELECT * FROM store_mango LIMIT ${limit}`);
     res.json(rows);
   } catch (error) {
