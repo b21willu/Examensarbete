@@ -30,7 +30,7 @@ const ProductList = () => {
           <div key={product.sku} className="product">
             <Link to={`/product/${product.sku}`}>
               <img
-                src={require(`./mango/${product.image_downloads[0]}.jpg`)}
+                src={require(`../../../mango/${product.image_downloads[0]}.jpg`)}
                 alt={product.name}
                 className="product-content"
                 id="product-image"

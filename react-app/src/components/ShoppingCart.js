@@ -53,7 +53,7 @@ const ShoppingCart = () => {
         <div key={product.sku} className="shopping-cart-container">
           <div className="shopping-cart">
             <img
-              src={require(`./mango/${product.image_downloads[0].replace(/['"\[\]]+/g, '')}.jpg`)}
+              src={require(`../../../mango/${product.image_downloads[0].replace(/['"\[\]]+/g, '')}.jpg`)}
               alt={`Bild`}
               className="cart-image"
             />

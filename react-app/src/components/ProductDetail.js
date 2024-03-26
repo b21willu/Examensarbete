@@ -31,7 +31,7 @@ const ProductDetail = () => {
             {product.image_downloads.map((image, index) => (
               <img
                 key={index}
-                src={require(`./mango/${image.replace(/['"\[\]]+/g, '')}.jpg`)}
+                src={require(`../../../mango/${image.replace(/['"\[\]]+/g, '')}.jpg`)}
                 alt={`Bild ${index + 1}`}
                 className="product-detail-image"
               />
