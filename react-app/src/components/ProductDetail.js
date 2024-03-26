@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const ProductDetail = () => {
   const { sku } = useParams();
@@ -19,6 +19,10 @@ const ProductDetail = () => {
       .catch(error => console.error('Error fetching product details:', error));
   }, [sku]);
 
+  const handleAddToCart = () => {
+    alert('Produkten har lagts till i kundvagnen.');
+  };
+
   return (
     <div>
       {product && (
@@ -34,10 +38,11 @@ const ProductDetail = () => {
             ))}
           </div>
           <div className="product-info">
-              <h2 className="product-detail-content">{product.name}</h2>
-              <p className="product-detail-content">Beskrivning: {product.description}</p>
-              <p className="product-detail-content">Pris: {product.price} {product.currency}</p>
-              <button className="button">Lägg till i kundvagnen</button>
+            <h2 className="product-detail-content">{product.name}</h2>
+            <p className="product-detail-content">Beskrivning: {product.description}</p>
+            <p className="product-detail-content">Pris: {product.price} {product.currency}</p>
+            <button onClick={handleAddToCart} className="button">Lägg till i kundvagnen</button>
+            <Link to={`/kundvagn/${sku}`} className="button">Gå till kundvagnen</Link>
           </div>
         </div>
       )}
