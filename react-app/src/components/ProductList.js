@@ -43,29 +43,29 @@ const ProductList = () => {
   return (
     <div>
       <h1>Produkter</h1>
-      <div>
-        <label htmlFor="filter">Filter:</label>
-        <select id="filter" onChange={handleFilterChange}>
-          <option value="">Alla</option>
-          <option value="backpack">Ryggsäck</option>
-          <option value="bags">Väskor</option>
+      <div className='filter-container'>
+        <label htmlFor="filter" className="filter-label">Filter:</label>
+        <select id="filter" onChange={handleFilterChange} className="filter-select">
+          <option value="">All</option>
+          <option value="backpack">Backpack</option>
+          <option value="bags">Bags</option>
           <option value="cardigans">Cardigans</option>
           <option value="cargo">Cargo</option>
-          <option value="dresses">Klänningar</option>
+          <option value="dresses">Dresses</option>
           <option value="hoodies">Hoodies</option>
-          <option value="jackets">Jackor</option>
+          <option value="jackets">Jackets</option>
           <option value="jeans">Jeans</option>
           <option value="knitwear">Knitwear</option>
           <option value="linen">Linen</option>
-          <option value="pants">Byxor</option>
+          <option value="pants">Pants</option>
           <option value="puffers">Puffers</option>
-          <option value="shoes">Skor</option>
+          <option value="shoes">Shoes</option>
           <option value="shorts">Shorts</option>
-          <option value="skirts">Kjolar</option>
-          <option value="suits">Kavaj</option>
+          <option value="skirts">Skirts</option>
+          <option value="suits">Suits</option>
           <option value="sweaters">Sweaters</option>
           <option value="t-shirts">T-shirts</option>
-          <option value="tops">Toppar</option>
+          <option value="tops">Tops</option>
         </select>
       </div>
       <div className="product-list">

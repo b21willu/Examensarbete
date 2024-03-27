@@ -22,7 +22,7 @@ const ProductDetail = () => {
   }, [sku]);
 
   const handleAddToCart = (sku) => {
-    addToCart(product, sku); // Använd addToCart-funktionen från useCart-hooket för att lägga till produkten i kundvagnen
+    addToCart(product, sku);
     alert('Produkten har lagts till i kundvagnen.');
   };
   return (
