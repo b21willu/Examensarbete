@@ -2,7 +2,7 @@
   <div *ngFor="let product of products" class="product">
     <a [routerLink]="'/product/' + product.sku">
       <ng-container *ngIf="product.image_downloads.length > 0; else noImage">
-        <img [src]="'../../../mango/' + product.image_downloads[0] + '.jpg'" [alt]="product.name" class="product-content" id="product-image">
+        <img [src]="'./assets/mango/' + product.image_downloads[0] + '.jpg'" [alt]="product.name">
       </ng-container>
       
       <ng-template #noImage>
