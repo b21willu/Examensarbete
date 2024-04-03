@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  private cart: any[] = [];
+  private cartKey = 'cart';
+  private cart: any[] = this.getCartFromLocalStorage() || [];
 
   constructor() { }
 
@@ -15,9 +16,23 @@ export class CartService {
   addToCart(product: any, sku: string): void {
     const productWithSku = { ...product, sku: sku };
     this.cart.push(productWithSku);
+    this.saveCartToLocalStorage();
   }
 
   removeFromCart(skuToRemove: string): void {
-    this.cart = this.cart.filter(product => product.sku !== skuToRemove);
+    const indexToRemove = this.cart.findIndex(product => product.sku === skuToRemove);
+    if (indexToRemove !== -1) {
+      this.cart.splice(indexToRemove, 1);
+      this.saveCartToLocalStorage();
+    }
+  }
+
+  private saveCartToLocalStorage(): void {
+    localStorage.setItem(this.cartKey, JSON.stringify(this.cart));
+  }
+
+  private getCartFromLocalStorage(): any[] {
+    const cartData = localStorage.getItem(this.cartKey);
+    return cartData ? JSON.parse(cartData) : [];
   }
 }
