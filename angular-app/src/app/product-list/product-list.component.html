@@ -1,3 +1,30 @@
+<h1>Produkter</h1>
+<div class='filter-container'>
+  <label for="filter" class="filter-label">Filter:</label>
+  <select id="filter" class="filter-select" [(ngModel)]="filterTerm" (change)="fetchProducts()">
+    <option value="">All</option>
+    <option value="backpack">Backpack</option>
+    <option value="bags">Bags</option>
+    <option value="cardigans">Cardigans</option>
+    <option value="cargo">Cargo</option>
+    <option value="dresses">Dresses</option>
+    <option value="hoodies">Hoodies</option>
+    <option value="jackets">Jackets</option>
+    <option value="jeans">Jeans</option>
+    <option value="knitwear">Knitwear</option>
+    <option value="linen">Linen</option>
+    <option value="pants">Pants</option>
+    <option value="puffers">Puffers</option>
+    <option value="shoes">Shoes</option>
+    <option value="shorts">Shorts</option>
+    <option value="skirts">Skirts</option>
+    <option value="suits">Suits</option>
+    <option value="sweaters">Sweaters</option>
+    <option value="t-shirts">T-shirts</option>
+    <option value="tops">Tops</option>
+  </select>
+</div>
+
 <div class="product-list">
   <div *ngFor="let product of products" class="product">
     <a [routerLink]="'/product/' + product.sku">

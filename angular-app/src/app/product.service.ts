@@ -14,6 +14,14 @@ export class ProductService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+  getFilteredProducts(filterTerm?: string): Observable<any[]> {
+    let apiUrlWithFilter = this.apiUrl;
+    if (filterTerm) {
+      apiUrlWithFilter += `?term=${filterTerm}`;
+    }
+    return this.http.get<any[]>(apiUrlWithFilter);
+  }
+
   getProduct(sku: string): Observable<any> {
     const url = `${this.apiUrl}/${sku}`;
     return this.http.get<any>(url);

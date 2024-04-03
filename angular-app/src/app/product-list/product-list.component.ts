@@ -8,6 +8,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit {
   products: any[] = [];
+  filterTerm: string = '';
 
   constructor(private productService: ProductService) { }
 
@@ -19,7 +20,11 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(
       data => {
         // Filter out products with null or empty image_downloads
-        const filteredProducts = data.filter(product => product.image_downloads !== null && product.image_downloads.length > 0);
+        const filteredProducts = data.filter(product => 
+          product.image_downloads !== null && 
+          product.image_downloads.length > 0 &&
+          (this.filterTerm === '' || product.terms.includes(this.filterTerm))
+        );
 
         // Loop through the filtered products and clean up the image_downloads
         const cleanedProducts = filteredProducts.map(product => {
