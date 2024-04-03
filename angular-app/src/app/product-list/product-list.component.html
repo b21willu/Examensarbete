@@ -1,1 +1,15 @@
-<p>product-list works!</p>
+<div class="product-list">
+  <div *ngFor="let product of products" class="product">
+    <a [routerLink]="'/product/' + product.sku">
+      <ng-container *ngIf="product.image_downloads.length > 0; else noImage">
+        <img [src]="'../../../mango/' + product.image_downloads[0] + '.jpg'" [alt]="product.name" class="product-content" id="product-image">
+      </ng-container>
+      
+      <ng-template #noImage>
+        <div>No Image Available</div>
+      </ng-template>
+    </a>
+    <p class="product-content">{{ product.name }}</p>
+    <p class="product-content">Pris: {{ product.price }} {{ product.currency }}</p>
+  </div>
+</div>

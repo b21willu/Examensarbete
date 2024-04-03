@@ -1,0 +1,20 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.product-content {
+  margin: 5px 0;
+}
+
+#product-image {
+  width: 100%;
+  height: auto;
+}
