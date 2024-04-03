@@ -6,7 +6,7 @@
     <h2 class="product-detail-content">{{ product.name }}</h2>
     <p class="product-detail-content">Beskrivning: {{ product.description }}</p>
     <p class="product-detail-content">Pris: {{ product.price }} {{ product.currency }}</p>
-    <button class="button">Lägg till i kundvagnen</button>
-    <a routerLink="/kundvagn/{{ product.sku }}" class="button">Gå till kundvagnen</a>
+    <button (click)="addToCart()" class="button">Lägg till i kundvagnen</button>
+    <a routerLink="/shopping-cart/" class="button">Gå till kundvagnen</a>
   </div>
 </div>

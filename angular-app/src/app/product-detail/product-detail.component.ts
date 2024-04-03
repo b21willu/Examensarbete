@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,9 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +32,11 @@ export class ProductDetailComponent implements OnInit {
         console.error('Error fetching product details:', error);
       });
     });
+  }
+
+  addToCart(): void {
+    const sku = this.product.sku;
+    this.cartService.addToCart(this.product, sku);
+    alert('Produkten har lagts till i kundvagnen.');
   }
 }

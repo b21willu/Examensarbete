@@ -1,1 +1,20 @@
-<p>shopping-cart works!</p>
+<div *ngIf="cart.length > 0; else emptyCart">
+  <div *ngFor="let product of cart" class="shopping-cart-container">
+    <div class="shopping-cart">
+      <img [src]="'./assets/mango/' + product.image_downloads[0] + '.jpg'" alt="Bild" class="cart-image">
+    </div>
+    <div class="shopping-product-info">
+      <p class="shopping-detail-content">{{ product.name }}</p>
+      <p class="shopping-detail-content">Pris: {{ product.price }} {{ product.currency }}</p>
+      <button (click)="removeFromCart(product.sku)">Ta bort</button>
+    </div>
+  </div>
+  <div class="total-price">
+    <p>Totalt pris: {{ calculateTotalPrice() }} {{ cart[0].currency }}</p>
+    <button class="pay-button">Betala</button>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <div>Din kundvagn är tom.</div>
+</ng-template>
