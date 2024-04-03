@@ -1,1 +1,12 @@
-<p>product-detail works!</p>
+<div *ngIf="product" class="product-detail-container">
+  <div class="product-details">
+    <img *ngFor="let image of product.image_downloads" [src]="'./assets/mango/' + image + '.jpg'" [alt]="image" class="product-detail-image">
+  </div>
+  <div class="product-info">
+    <h2 class="product-detail-content">{{ product.name }}</h2>
+    <p class="product-detail-content">Beskrivning: {{ product.description }}</p>
+    <p class="product-detail-content">Pris: {{ product.price }} {{ product.currency }}</p>
+    <button class="button">Lägg till i kundvagnen</button>
+    <a routerLink="/kundvagn/{{ product.sku }}" class="button">Gå till kundvagnen</a>
+  </div>
+</div>
