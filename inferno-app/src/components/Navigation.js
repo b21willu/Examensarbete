@@ -1,14 +1,15 @@
 import { Component } from 'inferno';
+import { Link } from 'inferno-router';
 
 class Navigation extends Component {
   render() {
     return (
       <nav>
         <ul>
-          <li><a>Hem</a></li>
-          <li><a>Produkter</a></li>
-          <li><a>Om oss</a></li>
-          <li><a>Kontakt</a></li>
+          <li><Link to="/">Hem</Link></li>
+          <li><Link to="/products">Produkter</Link></li>
+          <li><Link to="/about">Om oss</Link></li>
+          <li><Link to="/contact">Kontakt</Link></li>
           <li></li>
         </ul>
     </nav>

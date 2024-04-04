@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "inferno": "^8.2.3",
+    "inferno-router": "^8.2.3",
     "inferno-scripts": "8.0.20",
     "web-vitals": "^3.5.2"
   },
