@@ -1,14 +1,14 @@
-import Component from 'inferno-component';
+import { Component } from 'inferno';
 
 class Navigation extends Component {
   render() {
     return (
       <nav>
         <ul>
-          <li>Hem</li>
-          <li>Produkter</li>
-          <li>Om oss</li>
-          <li>Kontakt</li>
+          <li><a>Hem</a></li>
+          <li><a>Produkter</a></li>
+          <li><a>Om oss</a></li>
+          <li><a>Kontakt</a></li>
           <li></li>
         </ul>
     </nav>
