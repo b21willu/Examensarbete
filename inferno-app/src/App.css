@@ -42,3 +42,48 @@ li a:hover {
   text-align: center;
   padding: 10px 0;
 }
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.product {
+  width: 100%;
+  box-shadow: 2px 4px 8px rgb(66, 64, 64);
+  margin: 2%;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-content {
+  text-align: center;
+}
+
+.filter-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  margin-right: 10px;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #007bff;
+}
