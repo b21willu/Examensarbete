@@ -31,7 +31,6 @@ class ShoppingCart extends Component {
             return null;
           }
         });
-
         images[product.sku] = await Promise.all(imagePromises);
       }
     }
@@ -40,10 +39,12 @@ class ShoppingCart extends Component {
   };
 
   removeFromCart = (skuToRemove) => {
-    // Uppdatera den globala kundvagnen för att ta bort produkten med den angivna SKU:en
-    window.cart = window.cart.filter(product => product.sku !== skuToRemove);
-    this.forceUpdate();
-  };
+    const indexToRemove = window.cart.findIndex(product => product.sku === skuToRemove);
+    if (indexToRemove !== -1) {
+        window.cart.splice(indexToRemove, 1);
+        this.forceUpdate();
+    }
+};
 
   calculateTotalPrice = () => {
     return window.cart.reduce((total, product) => total + parseFloat(product.price), 0);
