@@ -1,11 +1,12 @@
 import { Component } from 'inferno';
+import { Link } from 'inferno-router';
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       products: [],
-      images: {} // Förvara bild-URL:er i state
+      images: {} // Förvara bilder i state
     };
   }
 
@@ -54,17 +55,18 @@ class ProductList extends Component {
   render() {
     return (
       <div>
-        <h1>Produkter</h1>
         <div className="product-list">
           {this.state.products.map(product => (
             <div key={product.sku} className="product">
               {this.state.images[product.sku] && (
-                <img
-                  src={this.state.images[product.sku][0]}
-                  alt={product.name} 
-                  className="product-content"
-                  id="product-image"
-                 />
+                <Link to={`/product/${product.sku}`}>
+                  <img
+                    src={this.state.images[product.sku][0]}
+                    alt={product.name} 
+                    className="product-content"
+                    id="product-image"
+                  />
+                </Link>
               )}
               <p className="product-content">{product.name}</p>
               <p className="product-content">Pris: {product.price} {product.currency}</p>

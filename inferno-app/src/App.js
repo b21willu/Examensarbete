@@ -8,6 +8,7 @@ import Navigation from './components/Navigation.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
 import ProductList from './components/ProductList.js';
+import ProductDetail from './components/ProductDetail.js';
 
 export default class App extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class App extends Component {
             <Route path="/products" component={ProductList} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
+            <Route path="/product/:sku" component={ProductDetail} />
           </Switch>
         </BrowserRouter>
         <Footer />
