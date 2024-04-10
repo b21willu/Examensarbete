@@ -50,7 +50,6 @@ class ProductList extends Component {
   };
 
   addToCart = (product, sku) => {
-    // Lägg till produkt i kundvagnen genom att uppdatera den globala variabeln
     window.cart = [...(window.cart || []), { ...product, sku }];
     alert('Produkten har lagts till i kundvagnen.');
   };

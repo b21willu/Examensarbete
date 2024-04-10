@@ -11,6 +11,7 @@ class Navigation extends Component {
           <li><Link to="/about">Om oss</Link></li>
           <li><Link to="/contact">Kontakt</Link></li>
           <li><Link to="/kundvagn">Kundvagn</Link></li>
+          <li></li>
         </ul>
     </nav>
     );

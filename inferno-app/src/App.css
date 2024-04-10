@@ -131,3 +131,53 @@ li a:hover {
 .button:hover {
   background-color: #476949;
 }
+
+/*Shopping cart styling*/
+.shopping-cart-container {
+  display: grid;
+  grid-template-columns: 100px auto auto auto;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cart-image {
+  width: 100%;
+  height: auto;
+}
+
+.shopping-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total-price,
+.pay-button {
+  align-self: center;
+}
+
+.pay-button {
+  grid-column: 4;
+  grid-row: span 2;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.pay-button:hover {
+  background-color: #476949;
+}
+
+
+.shopping-cart-container + .shopping-cart-container {
+  border-top: 1px solid #ccc;
+}
