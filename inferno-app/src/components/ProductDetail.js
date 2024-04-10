@@ -53,23 +53,29 @@ class ProductList extends Component {
     const { products, images } = this.state;
     return (
       <div>
-        <h1>Produkter</h1>
-        <div className="product-list">
-          {products.map(product => (
-            <div key={product.sku} className="product">
-              {images[product.sku] && images[product.sku].map((imageUrl, index) => (
-                <img
-                  key={index}
-                  src={imageUrl}
-                  alt={product.name} 
-                  className="product-image"
-                />
-              ))}
-              <p className="product-content">{product.name}</p>
-              <p className="product-content">Pris: {product.price} {product.currency}</p>
+        {products.map(product => (
+          <div key={product.sku} className="product-detail-container">
+            <div className="product-details">
+              {images[product.sku] && (
+                images[product.sku].map((imageUrl, index) => (
+                  <img
+                    key={index}
+                    src={imageUrl}
+                    alt={product.name} 
+                    className="product-detail-image"
+                  />
+                ))
+              )}
             </div>
-          ))}
-        </div>
+            <div className="product-info">
+              <h2 className="product-detail-content">{product.name}</h2>
+              <p className="product-detail-content">Beskrivning: {product.description}</p>
+              <p className="product-detail-content">Pris: {product.price} {product.currency}</p>
+              <button className="button">Lägg till i kundvagnen</button>
+              <button className="button">Gå till kundvagn</button>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }
