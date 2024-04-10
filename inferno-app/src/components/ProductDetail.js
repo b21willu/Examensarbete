@@ -1,4 +1,5 @@
 import { Component } from 'inferno';
+import { Link } from 'inferno-router';
 
 class ProductList extends Component {
   constructor(props) {
@@ -48,31 +49,37 @@ class ProductList extends Component {
     }
   };
 
+  addToCart = (product, sku) => {
+    // Lägg till produkt i kundvagnen genom att uppdatera den globala variabeln
+    window.cart = [...(window.cart || []), { ...product, sku }];
+    alert('Produkten har lagts till i kundvagnen.');
+  };
+
 
   render() {
     const { products, images } = this.state;
+    const { sku } = this.props.match.params;
+
     return (
       <div>
-        {products.map(product => (
+        {products.map((product) => (
           <div key={product.sku} className="product-detail-container">
             <div className="product-details">
-              {images[product.sku] && (
+              {images[product.sku] &&
                 images[product.sku].map((imageUrl, index) => (
-                  <img
-                    key={index}
-                    src={imageUrl}
-                    alt={product.name} 
-                    className="product-detail-image"
-                  />
-                ))
-              )}
+                  <img key={index} src={imageUrl} alt={product.name} className="product-detail-image" />
+                ))}
             </div>
             <div className="product-info">
               <h2 className="product-detail-content">{product.name}</h2>
               <p className="product-detail-content">Beskrivning: {product.description}</p>
               <p className="product-detail-content">Pris: {product.price} {product.currency}</p>
-              <button className="button">Lägg till i kundvagnen</button>
-              <button className="button">Gå till kundvagn</button>
+              <button className="button" onClick={() => this.addToCart(product, sku)}>
+                Lägg till i kundvagnen
+              </button>
+              <Link to={`/kundvagn`} className="button">
+                Gå till kundvagnen
+              </Link>
             </div>
           </div>
         ))}
